@@ -32,25 +32,50 @@ export const AppointmentForm = ({
         <Card>
           <CardBody>
             <h3 className="text-center">Add Appointment</h3>
-            <Form onSubmit={handleSubmit}>
+            <Form >
               <FormGroup>
-                <FormLabel>Appointment Name</FormLabel>
-                <FormControl  type="text" value={name} onChange={e => setTitle(e.target.value)} required/>
+                <FormLabel>Appointment Title</FormLabel>
+                <FormControl  
+                type="text" 
+                value={name} 
+                name='name'
+                onChange={e => setTitle(e.target.value)} 
+                required/>
               </FormGroup>
               <FormGroup>
                 <FormLabel>Contact</FormLabel>
-                <ContactPicker name='contact' value={contact} contacts={contactNames} onChange={e => setContact(e.target.value)} required/>
+                <ContactPicker 
+                name='contact' 
+                value={contact} 
+                contacts={contactNames} 
+                onChange={e => setContact(e.target.value)} 
+                required/>
               </FormGroup>
               <FormGroup>
                 <FormLabel>Date</FormLabel>
-                <FormControl name={date} value={date} onChange={e => setDate(e.target.value)} min={getTodayString()} required/>
+                <FormControl 
+                type='date' 
+                name="date"
+                value={date} 
+                onChange={e => setDate(e.target.value)} 
+                min={getTodayString()} 
+                required 
+                aria-label="Date Picker"
+                />
               </FormGroup>
               <FormGroup>
                   <FormLabel>Time</FormLabel>
-                  <FormControl name={time} value={time} onChange={e => setTime(e.target.value)} />
+                  <FormControl 
+                  type='time' 
+                  name="time"
+                  value={time} 
+                  onChange={e => setTime(e.target.value)} 
+                  required
+                  aria-label="Time Picker"
+                  />
               </FormGroup>
             <br />
-            <Button type="button" className="w-100">Submit</Button>
+            <Button onClick={handleSubmit} aria-label="Add Appointment" type="button" className="w-100" value='addAppointment'>Submit</Button>
             </Form>
           </CardBody>
         </Card>
